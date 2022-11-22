@@ -155,3 +155,37 @@ class login(APIView):
             return Response({
                 'isSuccess': 'fail'
             })
+
+class Test(APIView):
+    def get(self, request):
+        _a = request.query_params.get('majorName')
+        _b = request.query_params.get('grade')
+        _c = request.query_params.get('professorName')
+        _d = request.query_params.get('subjectName')
+        _e = request.query_params.get('courseNumber')
+        print(_a)
+
+        return Response([
+            {
+                'majorName': '컴퓨터융합학부',
+                'grade': '1',
+                'credit': '3',
+                'subjectName': '시스템프로그래밍',
+                'courseNumber': '1001-7007-00',
+                'professorName': '김형신',
+                'limitNumber': '30',
+                'currentNumber': '5'
+            },
+            {
+                'majorName': '컴퓨터융합학부',
+                'grade': '1',
+                'credit': '3',
+                'subjectName': '시스템프로그래밍',
+                'subjectNumber': '1001-7007',
+                'classNumber': '00',
+                'professorName': '김형신',
+                'limitNumber': '30',
+                'currentNumber': '5'
+            }
+        ])
+
